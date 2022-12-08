@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,9 +14,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageButton button = findViewById(R.id.open_gallery);
-        button.setOnClickListener(v -> {
+        ImageButton galleryClick = findViewById(R.id.open_gallery);
+        ImageButton cameraClick = findViewById(R.id.open_camera);
+
+        galleryClick.setOnClickListener(v -> {
             Intent myIntent = new Intent(MainActivity.this, EditImage.class);
+            MainActivity.this.startActivity(myIntent);
+        });
+
+        cameraClick.setOnClickListener(v -> {
+            System.out.println("working!");
+            Intent myIntent = new Intent(MainActivity.this, takePicture.class);
             MainActivity.this.startActivity(myIntent);
         });
     }
