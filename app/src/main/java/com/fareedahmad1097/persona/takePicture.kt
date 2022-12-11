@@ -1,6 +1,6 @@
 package com.fareedahmad1097.persona
 
-import com.fareedahmad1097.persona.databinding.ActivityMainBinding
+import com.fareedahmad1097.persona.databinding.ActivityTakePictureBinding
 import android.Manifest
 import android.content.ContentValues
 import android.content.pm.PackageManager
@@ -37,7 +37,7 @@ import java.util.Locale
 typealias LumaListener = (luma: Double) -> Unit
 
 class takePicture : AppCompatActivity() {
-    private lateinit var viewBinding: ActivityMainBinding
+    private lateinit var viewBinding: ActivityTakePictureBinding
 
     private var imageCapture: ImageCapture? = null
 
@@ -48,7 +48,7 @@ class takePicture : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewBinding = ActivityMainBinding.inflate(layoutInflater)
+        viewBinding = ActivityTakePictureBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
         // Request camera permissions
@@ -166,18 +166,4 @@ class takePicture : AppCompatActivity() {
                 }
             }.toTypedArray()
     }
-//    override fun onRequestPermissionsResult(
-//        requestCode: Int, permissions: Array<String>, grantResults:
-//        IntArray) {
-//        if (requestCode == REQUEST_CODE_PERMISSIONS) {
-//            if (allPermissionsGranted()) {
-//                startCamera()
-//            } else {
-//                Toast.makeText(this,
-//                    "Permissions not granted by the user.",
-//                    Toast.LENGTH_SHORT).show()
-//                finish()
-//            }
-//        }
-//    }
 }
